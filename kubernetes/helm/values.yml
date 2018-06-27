@@ -1,0 +1,17 @@
+appVersion: "2.4.6"
+image:
+  tag: "2.4.6"
+  pullPolicy: "Always"
+  repository: "registry.hub.docker.com/searchspring/elasticsearch-docker"
+cluster:
+  name: "test"
+client:
+  replicas: 1
+master:
+  replicas: 3
+data:
+  replicas: 2
+  persistance:
+    size: "4Gi"
+
+

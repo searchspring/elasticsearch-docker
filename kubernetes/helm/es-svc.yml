@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: elasticsearch
+    chart: elasticsearch-1.1.0
+    component: master
+    release: elasticsearch
+  name: elasticsearch-elasticsearch-discovery
+  namespace: default
+spec:
+  ports:
+  - port: 9300
+    protocol: TCP
+    targetPort: transport
+  selector:
+    app: elasticsearch
+    component: master
+    release: elasticsearch
+  type: ClusterIP
