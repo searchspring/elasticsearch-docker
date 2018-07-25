@@ -1,7 +1,7 @@
 appVersion: "2.4.6"
 image:
   tag: "2.4.6"
-  pullPolicy: "Always"
+  pullPolicy: "ifNotPresent"
   repository: "registry.hub.docker.com/searchspring/elasticsearch-docker"
 cluster:
   name: "saluki-east-2"
