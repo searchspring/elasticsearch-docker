@@ -4,7 +4,7 @@ image:
   pullPolicy: "Always"
   repository: "registry.hub.docker.com/searchspring/elasticsearch-docker"
 cluster:
-  name: "saluki-west-2"
+  name: "saluki-east-2"
 client:
   replicas: 1
   tolerations:
