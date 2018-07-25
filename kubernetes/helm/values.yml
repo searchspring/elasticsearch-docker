@@ -15,10 +15,10 @@ client:
   resources:
     requests:
       memory: "1Gi"
-      cpu: "0.5"
+      cpu: "500m"
     limits:
       memory: "1Gi"
-      cpu:  "0.5"
+      cpu:  "500m"
   nodeSelector:
      kops.k8s.io/instancegroup: "esnodes"
 master:
@@ -31,10 +31,10 @@ master:
   resources:
     requests:
       memory: "1Gi"
-      cpu: "0.6"
+      cpu: "600m"
     limits:
       memory: "1Gi"
-      cpu:  "0.6"
+      cpu:  "600m"
   nodeSelector:
      kops.k8s.io/instancegroup: "esnodes"
 data:
@@ -50,9 +50,9 @@ data:
   resources:
     requests:
       memory: "26Gi"
-      cpu: "2.5"
+      cpu: "2500m"
     limits:
       memory: "26Gi"
-      cpu:  "2.5"
+      cpu:  "2500m"
   nodeSelector:
      kops.k8s.io/instancegroup: "esnodes"

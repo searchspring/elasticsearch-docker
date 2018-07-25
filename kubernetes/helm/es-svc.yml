@@ -7,7 +7,9 @@ metadata:
     component: master
     release: elasticsearch
   name: elasticsearch-elasticsearch-discovery
-  namespace: default
+  namespace: elasticsearch
+annotations:
+  service.beta.kubernetes.io/aws-load-balancer-internal: '0.0.0.0/0'
 spec:
   ports:
   - port: 9300
