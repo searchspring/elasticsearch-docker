@@ -4,14 +4,55 @@ image:
   pullPolicy: "Always"
   repository: "registry.hub.docker.com/searchspring/elasticsearch-docker"
 cluster:
-  name: "test"
+  name: "saluki-west-2"
 client:
   replicas: 1
+  tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "es"
+    effect: "NoSchedule"
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "0.5"
+    limits:
+      memory: "1Gi"
+      cpu:  "0.5"
+  nodeSelector:
+     kops.k8s.io/instancegroup: "esnodes"
 master:
   replicas: 3
+  tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "es"
+    effect: "NoSchedule"
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "0.6"
+    limits:
+      memory: "1Gi"
+      cpu:  "0.6"
+  nodeSelector:
+     kops.k8s.io/instancegroup: "esnodes"
 data:
-  replicas: 2
+  replicas: 5
+  heapSize: "13312m"
   persistance:
-    size: "4Gi"
-
-
+    size: "50Gi"
+  tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "es"
+    effect: "NoSchedule"
+  resources:
+    requests:
+      memory: "26Gi"
+      cpu: "2.5"
+    limits:
+      memory: "26Gi"
+      cpu:  "2.5"
+  nodeSelector:
+     kops.k8s.io/instancegroup: "esnodes"
