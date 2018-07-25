@@ -5,6 +5,9 @@ image:
   repository: "registry.hub.docker.com/searchspring/elasticsearch-docker"
 cluster:
   name: "saluki-east-2"
+  config:
+    action.auto_create_index: "false"
+    script.disable_dynamic: "false"
 client:
   replicas: 1
   tolerations:
