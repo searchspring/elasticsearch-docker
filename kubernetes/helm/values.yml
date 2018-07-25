@@ -42,7 +42,7 @@ master:
 data:
   replicas: 5
   heapSize: "13312m"
-  persistance:
+  persistence:
     size: "50Gi"
   tolerations:
   - key: "dedicated"
