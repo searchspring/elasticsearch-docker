@@ -25,6 +25,7 @@ client:
      kops.k8s.io/instancegroup: "esnodes"
 master:
   replicas: 3
+  exposeHttp: "true"
   tolerations:
   - key: "dedicated"
     operator: "Equal"

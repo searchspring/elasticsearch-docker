@@ -6,7 +6,7 @@ metadata:
     chart: elasticsearch-1.1.0
     component: master
     release: elasticsearch
-  name: elasticsearch-elasticsearch-discovery
+  name: es24-east-elasticsearch-discovery
   namespace: elasticsearch
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-internal: '0.0.0.0/0'
@@ -18,5 +18,5 @@ spec:
   selector:
     app: elasticsearch
     component: master
-    release: elasticsearch
+    release: es24-east
   type: ClusterIP
