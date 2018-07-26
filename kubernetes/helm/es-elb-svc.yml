@@ -15,9 +15,10 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-connection-draining-timeout: "300"
 spec:
   ports:
-  - port: 9200
+  - name: http
+    port: 9200
     protocol: TCP
-    targetPort: transport
+    targetPort: http
   selector:
     app: elasticsearch
     component: client
