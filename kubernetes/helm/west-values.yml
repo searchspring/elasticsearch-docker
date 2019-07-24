@@ -1,0 +1,61 @@
+appVersion: "2.4.6"
+image:
+  tag: "2.4.6"
+  pullPolicy: "IfNotPresent"
+  repository: "registry.hub.docker.com/searchspring/elasticsearch-docker"
+cluster:
+  name: "saluki-west-2"
+  config:
+    action.auto_create_index: "false"
+client:
+  replicas: 1
+  tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "es"
+    effect: "NoSchedule"
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "500m"
+    limits:
+      memory: "1Gi"
+      cpu:  "500m"
+  nodeSelector:
+     kops.k8s.io/instancegroup: "esnodes"
+master:
+  replicas: 3
+  exposeHttp: "true"
+  tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "es"
+    effect: "NoSchedule"
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "600m"
+    limits:
+      memory: "1Gi"
+      cpu:  "600m"
+  nodeSelector:
+     kops.k8s.io/instancegroup: "esnodes"
+data:
+  replicas: 5
+  heapSize: "13312m"
+  persistence:
+    size: "50Gi"
+  tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "es"
+    effect: "NoSchedule"
+  resources:
+    requests:
+      memory: "26Gi"
+      cpu: "2500m"
+    limits:
+      memory: "26Gi"
+      cpu:  "2500m"
+  nodeSelector:
+     kops.k8s.io/instancegroup: "esnodes"
