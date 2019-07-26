@@ -8,7 +8,7 @@ cluster:
   config:
     action.auto_create_index: "false"
 client:
-  replicas: 1
+  replicas: 2
   tolerations:
   - key: "dedicated"
     operator: "Equal"
