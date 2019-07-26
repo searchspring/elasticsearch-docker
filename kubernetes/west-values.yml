@@ -7,6 +7,7 @@ cluster:
   name: "saluki-west-2"
   config:
     action.auto_create_index: "false"
+    script.inline: "true"
 client:
   replicas: 2
   tolerations:
